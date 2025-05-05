@@ -172,7 +172,9 @@ public class ScreenShield {
         NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification,
                                                object: nil,
                                                queue: .main) { [weak self] _ in
-            self?.handleScreenshot()
+            if self?.isProtected == true {
+                self?.handleScreenshot()
+            }
         }
     }
 
